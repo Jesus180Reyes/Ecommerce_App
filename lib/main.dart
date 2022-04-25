@@ -19,8 +19,8 @@ class MyApp extends StatelessWidget {
         title: 'SlideShow App',
         initialRoute: 'home',
         routes: {
+          'slideShow': (context) => const SlideShowPage(),
           'home': (context) => const HomePage(),
-          'principal': (context) => const PrincipalPage(),
         },
       ),
     );

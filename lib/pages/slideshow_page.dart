@@ -4,14 +4,14 @@ import 'package:slideshow_app/models/models.dart';
 import 'package:slideshow_app/widgets/widgets.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
-class HomePage extends StatefulWidget {
-  const HomePage({Key? key}) : super(key: key);
+class SlideShowPage extends StatefulWidget {
+  const SlideShowPage({Key? key}) : super(key: key);
 
   @override
-  State<HomePage> createState() => _HomePageState();
+  State<SlideShowPage> createState() => _SlideShowPageState();
 }
 
-class _HomePageState extends State<HomePage> {
+class _SlideShowPageState extends State<SlideShowPage> {
   final controller = PageController();
   int pageIndex = 0;
 
