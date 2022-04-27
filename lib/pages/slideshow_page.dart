@@ -97,7 +97,7 @@ class _Dotindicator extends StatelessWidget {
             duration: const Duration(milliseconds: 500),
             curve: Curves.easeInOut,
           );
-          Navigator.pushReplacementNamed(context, 'principal');
+          Navigator.pushReplacementNamed(context, 'home');
 
           // controller.nextPage(
           //   duration: const Duration(milliseconds: 300),
