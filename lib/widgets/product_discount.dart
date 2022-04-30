@@ -1,9 +1,11 @@
 import 'package:animate_do/animate_do.dart';
 import 'package:flutter/material.dart';
-import 'package:slideshow_app/models/models.dart';
+import 'package:slideshow_app/models/discount_porduct.dart';
 
-class ProductWidget extends StatelessWidget {
-  const ProductWidget({Key? key}) : super(key: key);
+class ProductDiscountWidget extends StatelessWidget {
+  const ProductDiscountWidget({
+    Key? key,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -13,7 +15,7 @@ class ProductWidget extends StatelessWidget {
       physics: const BouncingScrollPhysics(),
       child: Row(
         children: [
-          ...demoProducts
+          ...demoproductDiscount
               .map(
                 (product) => _CardWidget(
                   size: size,
@@ -28,7 +30,7 @@ class ProductWidget extends StatelessWidget {
 }
 
 class _CardWidget extends StatelessWidget {
-  final Product product;
+  final ProductDiscount product;
   const _CardWidget({
     Key? key,
     required this.size,
@@ -42,7 +44,7 @@ class _CardWidget extends StatelessWidget {
     return SlideInLeft(
       child: GestureDetector(
         onTap: () =>
-            Navigator.pushNamed(context, 'details', arguments: product),
+            Navigator.pushNamed(context, 'detailsD', arguments: product),
         child: Container(
           padding: const EdgeInsets.all(8),
           margin: const EdgeInsets.all(10),
@@ -67,7 +69,7 @@ class _CardWidget extends StatelessWidget {
                       height: 150,
                       width: size.width,
                       fit: BoxFit.cover,
-                      image: AssetImage(product.imageUrl),
+                      image: AssetImage(product.image),
                     ),
                   ),
                   const SizedBox(height: 5),
@@ -77,7 +79,7 @@ class _CardWidget extends StatelessWidget {
                   ),
                   const SizedBox(height: 5),
                   Text(
-                    product.name,
+                    product.title,
                     maxLines: 2,
                     overflow: TextOverflow.ellipsis,
                     style: Theme.of(context)
@@ -98,9 +100,7 @@ class _CardWidget extends StatelessWidget {
                   ),
                 ],
               ),
-              product.isDiscount != ''
-                  ? _IsDiscountWidget(product: product)
-                  : const SizedBox(),
+              _IsDiscountWidget(product: product)
             ],
           ),
         ),
@@ -110,7 +110,7 @@ class _CardWidget extends StatelessWidget {
 }
 
 class _IsDiscountWidget extends StatelessWidget {
-  final Product product;
+  final ProductDiscount product;
   const _IsDiscountWidget({
     Key? key,
     required this.product,
@@ -128,7 +128,7 @@ class _IsDiscountWidget extends StatelessWidget {
           borderRadius: BorderRadius.circular(20),
         ),
         child: Text(
-          product.isDiscount != '' ? product.isDiscount : '',
+          '${product.discount}% OFF',
           style: Theme.of(context).textTheme.subtitle2!.copyWith(
                 color: Colors.white,
                 fontWeight: FontWeight.bold,
