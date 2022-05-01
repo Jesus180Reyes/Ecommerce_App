@@ -49,7 +49,6 @@ class _CardWidget extends StatelessWidget {
           height: 280,
           width: 170,
           decoration: BoxDecoration(
-            // color: Colors.red,
             border: Border.all(
               width: 1,
               color: Colors.grey.withOpacity(0.5),
@@ -61,13 +60,16 @@ class _CardWidget extends StatelessWidget {
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  ClipRRect(
-                    borderRadius: BorderRadius.circular(20),
-                    child: Image(
-                      height: 150,
-                      width: size.width,
-                      fit: BoxFit.cover,
-                      image: AssetImage(product.imageUrl),
+                  Hero(
+                    tag: product.id,
+                    child: ClipRRect(
+                      borderRadius: BorderRadius.circular(20),
+                      child: Image(
+                        height: 150,
+                        width: size.width,
+                        fit: BoxFit.cover,
+                        image: AssetImage(product.imageUrl),
+                      ),
                     ),
                   ),
                   const SizedBox(height: 5),
