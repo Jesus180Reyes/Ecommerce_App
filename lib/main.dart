@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:slideshow_app/pages/pages.dart';
+import 'package:slideshow_app/providers/custombutton_provider.dart';
+import 'package:slideshow_app/providers/dialog_provider.dart';
 import 'package:slideshow_app/providers/dot_provder.dart';
 import 'package:slideshow_app/providers/providers.dart';
 import 'package:slideshow_app/theme/theme.dart';
@@ -16,6 +18,8 @@ class MyApp extends StatelessWidget {
       providers: [
         ChangeNotifierProvider<DotProvider>(create: (_) => DotProvider()),
         ChangeNotifierProvider(create: (_) => TimerProvider()),
+        ChangeNotifierProvider(create: (_) => CustomButtonProvider()),
+        ChangeNotifierProvider(create: (_) => DialogProvider()),
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
